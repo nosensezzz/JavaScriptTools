@@ -3,7 +3,7 @@
 class PriorityQueue {
     constructor(ASE = true){
         this.q = [null];
-        this.isAse = ASE;
+        this.isAse = ASE; // true min heap tree, false max heap tree
     }
 
     compare = (a, b) => {
@@ -50,10 +50,49 @@ class PriorityQueue {
         let pos = 1;
         this.q[pos] = last;
 
-        let leftpos = pos * 2;
-        let rightpos = pos * 2 + 1;
+        let end = false;
+        let curr = this.q[pos];
+        let left = this.q[pos*2];
+        let right = this.q[pos * 2 + 1];
 
-        
+        while(!end && (left || right)){
+            if(left === undefined){
+                // compare to right only
+                if(this.compare(right, curr)){
+                    [ this.q[pos], this.q[pos*2+1] ] = [ this.q[pos*2+1], this.q[pos] ];
+                    pos = pos*2+1;
+                    curr = this.q[pos];
+                    left = this.q[pos*2];
+                    right = this.q[pos*2 + 1];
+                } else {
+                    end = true;
+                }
+
+            } else if(right === undefined){
+                // compare to left only
+                if(this.compare(left, curr)){
+                    [ this.q[pos], this.q[pos*2] ] = [ this.q[pos*2], this.q[pos] ];
+                    pos = pos*2;
+                    curr = this.q[pos];
+                    left = this.q[pos*2];
+                    right = this.q[pos*2 + 1];
+                } else {
+                    end = true;
+                }
+
+            } else {
+                // compare to closer one
+                let isLeft;
+                if( (this.isAse && left <= right) || (!isLeft && left >= right)){
+                    isLeft = true;
+                } else {
+                    isLeft = false;
+                }
+
+                
+
+            }
+        }
     };
 }
 
