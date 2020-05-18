@@ -39,6 +39,10 @@ class PriorityQueue {
     pop = () => {
         // pop the head
         if(this.q.length <= 1) return null;
+        if(this.q.length === 2) {
+            return this.q.pop();
+        }
+
         const ret = this.q[1];
         this.afterPop();
 

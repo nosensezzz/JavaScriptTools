@@ -13,14 +13,19 @@
 ## Priority Queue Example 
 
 ```javascript
-// code away!
+let isMinHeapTree = true;
+let q = new PriorityQueue(isMinHeapTree); // true => min heap tree, false => max heap tree
 
-let generateProject = project => {
-  let code = [];
-  for (let js = 0; js < project.length; js++) {
-    code.push(js);
-  }
-};
+q.push(5); // => [ null, 5 ]
+q.push(3); // => [ null, 5, 3 ]
+q.push(8); // => [ null, 8, 3, 5 ];
+q.push(1); // => [ null, 8, 3, 5, 1 ]
+
+q.pop(); // Pop: 8 => [ null, 5, 3, 1 ]
+q.pop(); // Pop: 5 => [ null, 3, 1 ]
+q.pop(); // Pop: 3 => [ null, 1 ]
+q.pop(); // Pop: 1 => [ null ]
+q.pop(); // Pop: null => [ null ]
 ```
 
 ---
