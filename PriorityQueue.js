@@ -41,6 +41,8 @@ class PriorityQueue {
         if(this.q.length <= 1) return null;
         const ret = this.q[1];
         this.afterPop();
+
+
         return ret;
     };
 
@@ -89,24 +91,31 @@ class PriorityQueue {
                     isLeft = false;
                 }
 
+                if(isLeft){
+                    if(this.compare(left, curr)){
+                        [ this.q[pos], this.q[pos*2] ] = [ this.q[pos*2], this.q[pos] ];
+                        pos = pos*2;
+                        curr = this.q[pos];
+                        left = this.q[pos*2];
+                        right = this.q[pos*2 + 1];
+                    } else {
+                        end = true;
+                    }
+                } else {
+                    if(this.compare(right, curr)){
+                        [ this.q[pos], this.q[pos*2+1] ] = [ this.q[pos*2+1], this.q[pos] ];
+                        pos = pos*2+1;
+                        curr = this.q[pos];
+                        left = this.q[pos*2];
+                        right = this.q[pos*2 + 1];
+                    } else {
+                        end = true;
+                    }
+                }
                 
-
             }
         }
     };
 }
 
-//export default PriorityQueue;
-
-let q = new PriorityQueue(false);
-
-console.log(q.q);
-q.push(5);
-console.log(q.q);
-q.push(3);
-console.log(q.q);
-q.push(8);
-console.log(q.q);
-
-q.push(1);
-console.log(q.q);
+export default PriorityQueue;
