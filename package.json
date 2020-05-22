@@ -1,0 +1,29 @@
+{
+  "name": "javascript-tools-algorithm",
+  "version": "1.0.0",
+  "description": "javascript tools library",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nosensezzz/JavaScriptTools.git"
+  },
+  "keywords": [
+    "javascript",
+    "tools",
+    "priorityqueue",
+    "heap",
+    "heaptree",
+    "maxheap",
+    "minheap",
+    "tree"
+  ],
+  "author": "Xuan Zhao",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nosensezzz/JavaScriptTools/issues"
+  },
+  "homepage": "https://github.com/nosensezzz/JavaScriptTools#readme"
+}

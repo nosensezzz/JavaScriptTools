@@ -28,7 +28,7 @@ class PriorityQueue {
                 if(!this.compare(this.q[pos], this.q[parent])){
                     end = true;
                 } else {
-                    [ this.q[pos], this.q[1] ] = [ this.q[1], this.q[pos] ];
+                    [ this.q[pos], this.q[parent] ] = [ this.q[parent], this.q[pos] ];
                     pos = parent;
                     parent = pos >> 1;
                 }
@@ -122,4 +122,23 @@ class PriorityQueue {
     };
 }
 
-export default PriorityQueue;
+module.exports = PriorityQueue;
+
+// const pq = new PriorityQueue(false);
+// pq.push(5);
+// console.log(pq.q);
+// pq.push(15);
+// console.log(pq.q);
+// pq.push(115);
+// console.log(pq.q);
+// pq.push(25);
+// console.log(pq.q);
+// pq.push(55);
+// console.log(pq.q);
+
+// console.log(pq.pop());
+// console.log(pq.pop());
+// console.log(pq.pop());
+// console.log(pq.pop());
+// console.log(pq.pop());
+// console.log(pq.pop());
